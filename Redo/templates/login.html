@@ -1,0 +1,15 @@
+<style>
+    h5{
+        color: red;
+    }
+</style>
+<form action='login' method='POST'>
+    {% csrf_token %}
+    <h1>Login here </h1>
+    {% for i in messages %}
+    <h5>{{i}}</h5>
+    {% endfor %}
+    <h2>Username: <input type='text' name='username'></h2>
+    <h2>Password: <input type='password' name='password'></h2>
+    <button>login</button>
+</form>

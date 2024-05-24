@@ -1,0 +1,33 @@
+<style>
+    h2{
+        color:blue;
+    }
+    h1{
+        color: blue;
+    }
+</style>
+{% comment %} {% load static %}
+<link rel='stylesheet' href="{% static 'style.css' %}"> {% endcomment %}
+
+{% for i in students %}
+<h2>My name is {{i.name}} <br> I am in {{i.Class}}<br> I am {{i.age}} years old.<br> My performance is {{i.performance}}<br> I am a {{i.gender}}<br> My height is {{i.height}} </h2>
+{% endfor %}
+
+{% if user.is_authenticated%}
+<a href='logout'>logout</a>
+
+{% endif %}
+
+
+{% if user.is_authenticated%}
+<h1>Welcome {{user.username}}</h1>
+<h2>Input your text here 👇!</h2>
+{% else %}
+<h1>Welcome Input your text here 👇!</h1>
+{% endif %}
+
+<form method='POST' action='counting'> 
+    {% csrf_token %}
+    <textarea name='text' rows= '30' cols= '30'></textarea><br>
+    <input type= 'submit'> 
+</form> 
